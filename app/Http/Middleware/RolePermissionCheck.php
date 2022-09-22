@@ -57,6 +57,9 @@ class RolePermissionCheck
                 'tambahKamar',
                 'superior',
                 'deluxe',
+                '/ubahKamarForm/{id}',
+                '/ubahKamar/{id}',
+                '/hapusKamar/{id}',
             ]
         ];
     }

@@ -20,16 +20,20 @@ class adminController extends Controller
             return redirect('/superior');
         }
     }
+
+    public function ubahKamarForm($id){
+        $kamar=kamarModel::findOrFail($id);
+        return view('pages.ubahKamar', ['kamar' => $kamar]);
+    }
+
     public function ubahKamar($id, Request $request){
         $request->validate([
             'title' => 'required',
-            'image' => 'required',
             'desc' => 'required',
             'type' => 'required',
         ],
         [
             'title.required'=>'Title tidak boleh kosong',
-            'image.required'=>'Image tidak boleh kosong',
             'desc.required'=>'Desc tidak boleh kosong',
             'type.required'=>'Type tidak boleh kosong',
         ]);
@@ -41,7 +45,12 @@ class adminController extends Controller
         $bioUpdate->type=$request->type;
         $bioUpdate->save();
 
-        Session::flash('sukses', 'Update Data Sukses!!');
+        return redirect('/superior');
+    }
+
+    public function hapusKamar($id){
+        $hapus=kamarModel::findOrFail($id);
+        $hapus->delete();
         return redirect('/superior');
     }
 }

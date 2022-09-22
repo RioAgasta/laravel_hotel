@@ -9,5 +9,5 @@ class kamarModel extends Model
 {
     use HasFactory;
     protected $table="kamars";
-    protected $fillable = ['title', 'desc', 'type'];
+    protected $fillable = ['title', 'image', 'desc', 'type'];
 }

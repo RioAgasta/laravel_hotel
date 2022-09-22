@@ -39,8 +39,10 @@ Route::middleware(['auth', 'roleaccess'])->group(function(){
     Route::get('/tampilan', function (){
         return view('pages.tambahKamar');
     });
-    
+    Route::post('/tambahKamar', [adminController::class, 'tambahKamar']);
+    Route::get('/search', [resepsionisController::class, 'search']);
+    Route::get('/ubahKamarForm/{id}', [adminController::class, 'ubahKamarForm']);
+    Route::put('/ubahKamar/{id}', [adminController::class, 'ubahKamar']);
+    Route::delete('/hapusKamar/{id}', [adminController::class, 'hapusKamar'])->name('hapus');
 });
-Route::post('/ubahKamar/{id}', [adminController::class, 'ubahKamar']);
-Route::post('/tambahKamar', [adminController::class, 'tambahKamar']);
-Route::get('/search', [resepsionisController::class, 'search']);
+

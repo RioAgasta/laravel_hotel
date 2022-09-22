@@ -38,7 +38,7 @@
                     <input id="first_name" type="text" class="form-control" name="name" autofocus>
                   </div>
                   <div class="form-group">
-                    <label>Image</label>
+                    <label>Profile Picture</label>
                     <input type="file" class="form-control" name="image">
                   </div>
                   <div class="form-group">

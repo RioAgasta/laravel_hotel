@@ -4,44 +4,24 @@
 @section('dashboard')
 <div class="card">
     <div class="card-body">
-        <form method="POST" action="/ubahKamar">
+        <form method="POST" action="/ubahKamar/{{$kamar->id}}">
             @csrf
             @method('PUT')
             <div class="form-group">
                 <label>Title</label>
-                <input name="title" type="text" class="form-control" id="exampleInputClass1" aria-describedby="classHelp" placeholder="Enter Title">
-                @if ($errors->has('title'))
-                <div class="class">
-                    {{$errors->first('title')}}
-                </div>
-                @endif
+                <input name="title" type="text" class="form-control" value="{{$kamar->title}}" placeholder="Enter Title">
             </div>
             <div class="form-group">
                 <label>Image</label>
-                <input name="image" type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Image">
-                @if ($errors->has('image'))
-                <div class="class">
-                    {{$errors->first('image')}}
-                </div>
-                @endif
+                <input name="image" type="file" class="form-control" value="{{$kamar->image}}" placeholder="Enter Image">
             </div>
             <div class="form-group">
                 <label>Desc</label>
-                <input name="desc" type="text" class="form-control" id="exampleInputNis1" placeholder="Desc">
-                @if ($errors->has('desc'))
-                <div class="class">
-                    {{$errors->first('desc')}}
-                </div>
-                @endif
+                <input name="desc" type="text" class="form-control" value="{{$kamar->desc}}" placeholder="Desc">
             </div>
             <div class="form-group">
                 <label>Type</label>
-                <input name="type" type="text" class="form-control" id="exampleInputDate1" aria-describedby="dateHelp" placeholder="Enter Your Type">
-                @if ($errors->has('type'))
-                <div class="class">
-                    {{$errors->first('type')}}
-                </div>
-                @endif
+                <input name="type" type="text" class="form-control" value="{{$kamar->type}}" placeholder="Enter Your Type">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
