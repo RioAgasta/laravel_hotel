@@ -30,6 +30,7 @@ class accountController extends Controller
 
         $data=User::create([
             'name'=>$request->name,
+            'image'=>$request->image,
             'email'=>$request->email,
             'password'=>Hash::make($request->password),
             'role'=>$request->role,

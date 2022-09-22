@@ -11,4 +11,11 @@ class resepsionisController extends Controller
         $list = reservationModel::all();
         return view('pages.reservation', ['list'=>$list]);
     }
+
+    public function search(Request $request){
+        $searchResult = $request->search;
+        $result=reservationModel::where('nama','like',"%".$searchResult."%")->paginate();
+        return view('pages.reservation',['list' => $result]);
+    }
+
 }

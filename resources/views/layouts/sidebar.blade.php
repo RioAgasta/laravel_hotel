@@ -21,6 +21,9 @@
         <li @if (auth()->user()->role != 'Resepsionis') hidden @endif class="@if(Route::current()->uri == 'reservation') active @endif"><a class="nav-link" href="/reservation">
           <i class="fas fa-receipt"></i> <span>List</span></a>
         </li>
+        <li class="@if(Route::current()->uri == 'tampilan') active @endif"><a class="nav-link" href="/tampilan">
+          <i class="fas fa-receipt"></i> <span>Tambah Kamar</span></a>
+        </li>
     </ul>
   </aside>
 </div>

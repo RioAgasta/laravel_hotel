@@ -17,6 +17,7 @@
           <h5 class="card-title">{{$index->title}}</h5>
           <p class="card-text">{{$index->desc}}</p>
           <a href="/formPesan/{{$index->id}}" class="btn btn-primary">Pesan</a>
+          <a href="/ubahKamar/{{$index->id}}" class="btn btn-primary">Edit</a>
         </div>
       </div>
     @endforeach

@@ -38,6 +38,10 @@
                     <input id="first_name" type="text" class="form-control" name="name" autofocus>
                   </div>
                   <div class="form-group">
+                    <label>Image</label>
+                    <input type="file" class="form-control" name="image">
+                  </div>
+                  <div class="form-group">
                     <label for="email">Email</label>
                     <input id="email" type="email" class="form-control" name="email">
                   </div>
