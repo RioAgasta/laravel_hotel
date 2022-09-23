@@ -14,7 +14,7 @@
                 <tr> <!-- Ini yang di file tabel.blade.php -->
                 <th scope="col">No</th>
                 <th scope="col">Nama</th>
-                <th scope="col">Namakamar</th>
+                <th scope="col">Nama Kamar</th>
                 <th scope="col">NIK</th>
                 <th scope="col">Email</th>
                 <th scope="col">Type</th>

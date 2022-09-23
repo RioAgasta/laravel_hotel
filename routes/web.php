@@ -11,7 +11,7 @@ Route::get('/login', [accountController::class,'halamanLogin'])->name('login');
 Route::post('/log', [accountController::class,'login']);
 Route::get('/logout', function(){
     Auth::logout();
-    return redirect('/login');
+    return redirect('login');
 });
 
 // Register
@@ -21,28 +21,30 @@ Route::get('register', function (){
 Route::post('/simpanData', [accountController::class, 'simpanData']);
 
 Route::middleware(['auth', 'roleaccess'])->group(function(){
+    // General
     Route::get('/', function (){
         return view('pages.dashboard');
     });
-    // Route::get('/superior', function (){
-    //     return view('pages.superior');
-    // });
-    Route::get('/superior', [tamuController::class, 'index']);
-    Route::get('/deluxe', [tamuController::class, 'index2']);
     Route::get('/profile', function (){
         return view('pages.profile');
     });
+    Route::get('/kamar', [tamuController::class, 'index']);
     Route::put('/ubahData', [accountController::class, 'ubahData']);
-    Route::get('/reservation', [resepsionisController::class, 'reservation']);
+
+    // Tamu
     Route::get('/formPesan/{id}', [tamuController::class, 'formPesan']);
+    Route::get('/invoice', [tamuController::class, 'invoice']);
     Route::post('/pesan', [tamuController::class, 'pesan']);
-    Route::get('/tampilan', function (){
-        return view('pages.tambahKamar');
-    });
-    Route::post('/tambahKamar', [adminController::class, 'tambahKamar']);
-    Route::get('/search', [resepsionisController::class, 'search']);
+
+    // Admin
+    Route::get('/tambahKamarForm', [adminController::class, 'tambahKamarForm']);
     Route::get('/ubahKamarForm/{id}', [adminController::class, 'ubahKamarForm']);
+    Route::post('/tambahKamar', [adminController::class, 'tambahKamar']);
     Route::put('/ubahKamar/{id}', [adminController::class, 'ubahKamar']);
     Route::delete('/hapusKamar/{id}', [adminController::class, 'hapusKamar'])->name('hapus');
+
+    // Resepsionis
+    Route::get('/reservation', [resepsionisController::class, 'reservation']);
+    Route::get('/search', [resepsionisController::class, 'search']);
 });
 

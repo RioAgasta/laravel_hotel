@@ -7,6 +7,7 @@
     <ul class="pagination">
         <li class="page-item"><a class="page-link" href="/superior">Superior</a></li>
         <li class="page-item active"><a class="page-link" href="/deluxe">Deluxe</a></li>
+        <li @if (auth()->user()->role != 'Admin') hidden @endif><a class="btn btn-primary" href="/tambahKamarForm">Tambah</a></li>
     </ul>
   </nav>
   <div class="row">

@@ -59,6 +59,10 @@ class accountController extends Controller
 
         $update=Auth::user();
         $update->name=$request->name;
+        // If statement dibawah fungsinya supaya image gak ke save jadi NULL kalo gak diisi
+        if ($request->image) {
+            $update->image=$request->image;
+        }
         $update->email=$request->email;
         $update->nik=$request->nik;
         $update->tgllahir=$request->tgllahir;
@@ -70,6 +74,10 @@ class accountController extends Controller
         return view('accounts.login');
     }
     public function login(Request $request){
+        if($request->has('logout')){
+            Auth::logout();
+        }
+
         $credentials=$request->only(['email','password']);
         if(Auth::attempt($credentials)){
             return redirect('/');

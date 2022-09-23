@@ -23,7 +23,7 @@ class RolePermissionCheck
         if(in_array($currentRoute, $this->WhichRoleCanAccessWhichPages()[$userRole])){
             return $next($request);
         } else {
-            abort(403, 'mmpus error');
+            abort(403, 'Role anda tidak bisa mengakses halaman ini');
         }
     }
 
@@ -31,14 +31,13 @@ class RolePermissionCheck
         return [
             'Tamu' => [
                 '/',
-                'superior',
-                'deluxe',
                 'profile',
                 'pesan',
                 'formPesan/{id}',
                 'ubahData',
                 'tampilan',
-                'reservation',
+                'invoice',
+                'kamar',
             ],
             'Resepsionis' => [
                 '/',
@@ -47,6 +46,8 @@ class RolePermissionCheck
                 'reservation',
                 'ubahData',
                 'tampilan',
+                'search',
+                'kamar',
             ],
             'Admin' => [
                 '/',
@@ -55,12 +56,28 @@ class RolePermissionCheck
                 'ubahData',
                 'ubahKamar',
                 'tambahKamar',
-                'superior',
-                'deluxe',
-                '/ubahKamarForm/{id}',
-                '/ubahKamar/{id}',
-                '/hapusKamar/{id}',
-            ]
+                'kamar',
+                'ubahKamarForm/{id}',
+                'ubahKamar/{id}',
+                'hapusKamar/{id}',
+            ],
+            'God' => [
+                '/',
+                'tampilan',
+                'profile',
+                'ubahData',
+                'reservation',
+                'tambahKamarForm',
+                'tambahKamar',
+                'search',
+                'invoice',
+                'kamar',
+                'pesan',
+                'formPesan/{id}',
+                'ubahKamarForm/{id}',
+                'ubahKamar/{id}',
+                'hapusKamar/{id}',
+            ],
         ];
     }
 }

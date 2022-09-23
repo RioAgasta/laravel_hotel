@@ -7,8 +7,11 @@ use App\Models\kamarModel;
 
 class adminController extends Controller
 {
-    public function tambahKamar(Request $request){
+    public function tambahKamarForm(Request $request){
+        return view('pages.tambahKamar');
+    }
 
+    public function tambahKamar(Request $request){
         $data=kamarModel::create([
             'title'=>$request->title,
             'image'=>$request->image,
@@ -38,12 +41,14 @@ class adminController extends Controller
             'type.required'=>'Type tidak boleh kosong',
         ]);
 
-        $bioUpdate=kamarModel::findOrFail($id);
-        $bioUpdate->title=$request->title;
-        $bioUpdate->image=$request->image;
-        $bioUpdate->desc=$request->desc;
-        $bioUpdate->type=$request->type;
-        $bioUpdate->save();
+        $kamarUpdate=kamarModel::findOrFail($id);
+        $kamarUpdate->title=$request->title;
+        if ($request->image) {
+            $kamarUpdate->image=$request->image;
+        }
+        $kamarUpdate->desc=$request->desc;
+        $kamarUpdate->type=$request->type;
+        $kamarUpdate->save();
 
         return redirect('/superior');
     }

@@ -13,7 +13,7 @@
                 </div>
                 <div class="form-group col-6">
                     <label>Tipe Kamar</label>
-                    <input name="type" type="text" class="form-control" value="{{$card->type}}">
+                    <input name="type" type="text" class="form-control" value="{{$card->type}}" readonly>
                 </div>
             </div>
             <div class="row">

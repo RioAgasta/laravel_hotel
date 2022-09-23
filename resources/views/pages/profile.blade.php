@@ -41,6 +41,10 @@
                     <label>Role</label>
                     <input type="text" class="form-control" value="{{auth()->user()->role}}" disabled>
                   </div>
+                  <div class="form-group col-6">
+                    <label>Profile Picture</label>
+                    <input type="file" name="image" class="form-control" value="{{auth()->user()->image}}">
+                  </div>
                 </div>
                 <button class="btn btn-primary col-12">Save Changes</button>
             </div>

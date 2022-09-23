@@ -11,18 +11,14 @@
         <li class="@if(Route::current()->uri == '/') active @endif"><a class="nav-link" href="/">
           <i class="fas fa-home"></i><span>Home</span></a>
         </li>
-        <li class="nav-item dropdown"><a class="nav-link has-dropdown" href="/superior">
+        <li class="@if(Route::current()->uri == 'kamar') active @endif"><a class="nav-link" href="/kamar">
           <i class="fas fa-bed"></i><span>Pesan Kamar</span></a>
-          <ul class="dropdown-menu">
-            <li><a class="nav-link" href="/superior">Superior</a></li>
-            <li><a class="nav-link" href="/deluxe">Deluxe</a></li>
-          </ul>
         </li>
         <li @if (auth()->user()->role != 'Resepsionis') hidden @endif class="@if(Route::current()->uri == 'reservation') active @endif"><a class="nav-link" href="/reservation">
           <i class="fas fa-receipt"></i> <span>List</span></a>
         </li>
-        <li class="@if(Route::current()->uri == 'tampilan') active @endif"><a class="nav-link" href="/tampilan">
-          <i class="fas fa-receipt"></i> <span>Tambah Kamar</span></a>
+        <li @if (auth()->user()->role != 'Tamu') hidden @endif class="@if(Route::current()->uri == 'invoice') active @endif"><a class="nav-link" href="/invoice">
+          <i class="fas fa-receipt"></i> <span>Bukti Pemesanan</span></a>
         </li>
     </ul>
   </aside>

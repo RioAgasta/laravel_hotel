@@ -15,12 +15,17 @@ class tamuController extends Controller
 
     public function index(){
         $card=kamarModel::all();
-        return view('pages.superior', ['card'=>$card]);
+        return view('pages.kamar', ['card'=>$card]);
     }
 
     public function index2(){
         $card=kamarModel::all();
         return view('pages.deluxe', ['card'=>$card]);
+    }
+
+    public function invoice(){
+        $card=reservationModel::all();
+        return view('pages.invoice', ['card'=>$card]);
     }
 
     public function pesan(Request $request){
