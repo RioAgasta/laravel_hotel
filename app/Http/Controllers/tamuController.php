@@ -18,31 +18,25 @@ class tamuController extends Controller
         return view('pages.kamar', ['card'=>$card]);
     }
 
-    public function index2(){
-        $card=kamarModel::all();
-        return view('pages.deluxe', ['card'=>$card]);
-    }
-
     public function invoice(){
         $card=reservationModel::all();
         return view('pages.invoice', ['card'=>$card]);
     }
 
-    public function pesan(Request $request){
-
+    public function pesan($id, Request $request){
         $data=reservationModel::create([
             'nama'=>$request->nama,
             'namakamar'=>$request->namakamar,
-            'nik'=>$request->nik,
             'email'=>$request->email,
-            'type'=>$request->type,
             'cekin'=>$request->cekin,
             'cekout'=>$request->cekout,
             'jumlah'=>$request->jumlah,
         ]);
 
+        $decrement=KamarModel::findorFail($id)->decrement('jumlah', $request->jumlah);
+
         if($data){
-            return redirect('/superior');
+            return redirect('/kamar');
         }
     }
 }

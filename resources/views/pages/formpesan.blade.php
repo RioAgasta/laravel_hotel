@@ -4,22 +4,18 @@
 @section('formpesan')
 <div class="card">
     <div class="card-body">
-        <form method="POST" action="/pesan">
+        <form method="POST" action="/pesan/{{$card->id}}">
             @csrf
             <div class="row">
-                <div class="form-group col-6">
+                <div class="form-group col-12">
                     <label>Nama Kamar</label>
                     <input name="namakamar" type="text" class="form-control" value="{{$card->title}}">
-                </div>
-                <div class="form-group col-6">
-                    <label>Tipe Kamar</label>
-                    <input name="type" type="text" class="form-control" value="{{$card->type}}" readonly>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-6">
                     <label>Nama Pemesan</label>
-                    <input name="nama" type="text" class="form-control" placeholder="Masukkan Nama Pemesan" value="{{auth()->user()->name}}">
+                    <input autofocus name="nama" type="text" class="form-control" placeholder="Masukkan Nama Pemesan" value="{{auth()->user()->name}}">
                 </div>
                 <div class="form-group col-6">
                     <label>E-Mail</label>

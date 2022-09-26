@@ -16,11 +16,11 @@ class adminController extends Controller
             'title'=>$request->title,
             'image'=>$request->image,
             'desc'=>$request->desc,
-            'type'=>$request->type,
+            'jumlah'=>$request->jumlah,
         ]);
 
         if($data){
-            return redirect('/superior');
+            return redirect('/kamar');
         }
     }
 
@@ -33,12 +33,12 @@ class adminController extends Controller
         $request->validate([
             'title' => 'required',
             'desc' => 'required',
-            'type' => 'required',
+            'jumlah' => 'required',
         ],
         [
             'title.required'=>'Title tidak boleh kosong',
             'desc.required'=>'Desc tidak boleh kosong',
-            'type.required'=>'Type tidak boleh kosong',
+            'jumlah.required'=>'Jumlah tidak boleh kosong',
         ]);
 
         $kamarUpdate=kamarModel::findOrFail($id);
@@ -47,15 +47,15 @@ class adminController extends Controller
             $kamarUpdate->image=$request->image;
         }
         $kamarUpdate->desc=$request->desc;
-        $kamarUpdate->type=$request->type;
+        $kamarUpdate->jumlah=$request->jumlah;
         $kamarUpdate->save();
 
-        return redirect('/superior');
+        return redirect('/kamar');
     }
 
     public function hapusKamar($id){
         $hapus=kamarModel::findOrFail($id);
         $hapus->delete();
-        return redirect('/superior');
+        return redirect('/kamar');
     }
 }

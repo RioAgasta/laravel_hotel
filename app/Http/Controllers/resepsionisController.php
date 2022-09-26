@@ -18,4 +18,10 @@ class resepsionisController extends Controller
         return view('pages.reservation',['list' => $result]);
     }
 
+    public function searchDate(Request $request){
+        $searchResult = $request->searchDate;
+        $result=reservationModel::where(['cekin', 'cekout'], $searchResult)->paginate();
+        return view('pages.reservation',['list' => $result]);
+    }
+
 }

@@ -15,7 +15,7 @@ Route::get('/logout', function(){
 });
 
 // Register
-Route::get('register', function (){
+Route::get('/register', function (){
     return view('accounts.register');
 });
 Route::post('/simpanData', [accountController::class, 'simpanData']);
@@ -34,7 +34,7 @@ Route::middleware(['auth', 'roleaccess'])->group(function(){
     // Tamu
     Route::get('/formPesan/{id}', [tamuController::class, 'formPesan']);
     Route::get('/invoice', [tamuController::class, 'invoice']);
-    Route::post('/pesan', [tamuController::class, 'pesan']);
+    Route::post('/pesan/{id}', [tamuController::class, 'pesan']);
 
     // Admin
     Route::get('/tambahKamarForm', [adminController::class, 'tambahKamarForm']);
@@ -46,5 +46,6 @@ Route::middleware(['auth', 'roleaccess'])->group(function(){
     // Resepsionis
     Route::get('/reservation', [resepsionisController::class, 'reservation']);
     Route::get('/search', [resepsionisController::class, 'search']);
+    Route::get('/searchDate', [resepsionisController::class, 'searchDate']);
 });
 

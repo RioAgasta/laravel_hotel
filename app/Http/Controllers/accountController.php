@@ -16,7 +16,6 @@ class accountController extends Controller
             'email' => 'required',
             'password' => 'required',
             'role' => 'required',
-            'nik' => 'required',
             'tgllahir' => 'required'
         ],
         [
@@ -24,7 +23,6 @@ class accountController extends Controller
             'email.required'=>'Email tidak boleh kosong',
             'password.required'=>'Password tidak boleh kosong',
             'role.required' => 'Jenis Akun tidak boleh kosong',
-            'nik.required' => 'NIK tidak boleh kosong',
             'tgllahir.required' => 'Tanggal Lahir tidak boleh kosong',
         ]);
 
@@ -34,7 +32,6 @@ class accountController extends Controller
             'email'=>$request->email,
             'password'=>Hash::make($request->password),
             'role'=>$request->role,
-            'nik'=>$request->nik,
             'tgllahir'=>$request->tgllahir,
         ]);
 
@@ -47,13 +44,11 @@ class accountController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required',
-            'nik' => 'required',
             'tgllahir' => 'required'
         ],
         [
             'name.required'=>'Nama tidak boleh kosong',
             'email.required'=>'Email tidak boleh kosong',
-            'nik.required' => 'NIK tidak boleh kosong',
             'tgllahir.required' => 'Tanggal Lahir tidak boleh kosong',
         ]);
 
@@ -64,7 +59,6 @@ class accountController extends Controller
             $update->image=$request->image;
         }
         $update->email=$request->email;
-        $update->nik=$request->nik;
         $update->tgllahir=$request->tgllahir;
         $update->save();
 

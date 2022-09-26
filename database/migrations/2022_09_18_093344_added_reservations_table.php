@@ -17,9 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('namakamar');
-            $table->string('nik');
             $table->string('email');
-            $table->string('type');
             $table->date('cekin');
             $table->date('cekout');
             $table->integer('jumlah');

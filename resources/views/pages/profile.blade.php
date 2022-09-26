@@ -22,8 +22,8 @@
                     <input type="text" class="form-control" name="name" value="{{auth()->user()->name}}">
                   </div>
                   <div class="form-group col-6">
-                      <label>NIK</label>
-                      <input type="tel" class="form-control" name="nik" value="{{auth()->user()->nik}}">
+                    <label>Profile Picture</label>
+                    <input type="file" name="image" class="form-control" value="{{auth()->user()->image}}">
                   </div>
                 </div>
                 <div class="row">
@@ -37,13 +37,9 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="form-group col-6">
+                  <div class="form-group">
                     <label>Role</label>
                     <input type="text" class="form-control" value="{{auth()->user()->role}}" disabled>
-                  </div>
-                  <div class="form-group col-6">
-                    <label>Profile Picture</label>
-                    <input type="file" name="image" class="form-control" value="{{auth()->user()->image}}">
                   </div>
                 </div>
                 <button class="btn btn-primary col-12">Save Changes</button>

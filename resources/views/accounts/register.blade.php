@@ -50,10 +50,6 @@
                     <input id="password" type="password" class="form-control" name="password">
                   </div>
                   <div class="form-group">
-                    <label>NIK</label>
-                    <input type="tel" class="form-control" name="nik">
-                  </div>
-                  <div class="form-group">
                     <label>Tanggal Lahir</label>
                     <input type="date" class="form-control" name="tgllahir">
                   </div>

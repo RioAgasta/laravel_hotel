@@ -18,15 +18,11 @@
             <div class="form-group">
                 <label>Desc</label>
                 <input name="desc" type="text" class="form-control" placeholder="Enter Description">
-                
             </div>
             <div class="form-group">
-                <label>Tipe Kamar</label>
-                <select class="form-control selectric" name="type">
-                  <option>Superior</option>
-                  <option>Deluxe</option>
-                </select>
-              </div>
+                <label>Jumlah</label>
+                <input name="jumlah" type="number" class="form-control" min="1" value="1">
+            </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>

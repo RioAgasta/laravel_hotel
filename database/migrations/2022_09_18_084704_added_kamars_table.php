@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('image')->nullable();
             $table->string('desc');
-            $table->string('type');
+            $table->integer('jumlah');
 
             $table->timestamps();
         });

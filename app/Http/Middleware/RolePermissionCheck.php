@@ -32,7 +32,7 @@ class RolePermissionCheck
             'Tamu' => [
                 '/',
                 'profile',
-                'pesan',
+                'pesan/{id}',
                 'formPesan/{id}',
                 'ubahData',
                 'tampilan',
@@ -47,6 +47,7 @@ class RolePermissionCheck
                 'ubahData',
                 'tampilan',
                 'search',
+                'searchDate',
                 'kamar',
             ],
             'Admin' => [
@@ -70,9 +71,10 @@ class RolePermissionCheck
                 'tambahKamarForm',
                 'tambahKamar',
                 'search',
+                'searchDate',
                 'invoice',
                 'kamar',
-                'pesan',
+                'pesan/{id}',
                 'formPesan/{id}',
                 'ubahKamarForm/{id}',
                 'ubahKamar/{id}',

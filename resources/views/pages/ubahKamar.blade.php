@@ -20,8 +20,8 @@
                 <input name="desc" type="text" class="form-control" value="{{$kamar->desc}}" placeholder="Desc">
             </div>
             <div class="form-group">
-                <label>Type</label>
-                <input name="type" type="text" class="form-control" value="{{$kamar->type}}" placeholder="Enter Your Type">
+                <label>Jumlah Kamar</label>
+                <input name="jumlah" type="number" class="form-control" min="1" value="{{$kamar->jumlah}}">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
