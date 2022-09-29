@@ -31,18 +31,6 @@ $user=User::all();
             <a href="/profile" class="dropdown-item has-icon">
             <i class="far fa-user"></i> Profile
             </a>
-            @if (Auth::check())
-            @foreach ($user as $account)
-            <form method="POST" action="/log" class="ml-2"
-                @if (auth()->user()->name == $account->name) hidden @endif>
-                    @csrf
-                    <input type="hidden" name="logout" value="true">
-                    <input hidden type="email" name="email" value="{{$account->email}}">
-                    <input hidden type="password" name="password" value="123">
-                    <button type="submit" class="btn"><i class="far fa-user-circle mr-3"></i>{{$account->name}}</button>
-                </form>    
-                @endforeach
-            @endif
             <a href="/setting" class="dropdown-item has-icon">
             <i class="fas fa-cog"></i> Fitur
             </a>
