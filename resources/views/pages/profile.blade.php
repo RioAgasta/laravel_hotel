@@ -36,12 +36,10 @@
                       <input type="date" class="form-control" name="tgllahir" value="{{auth()->user()->tgllahir}}">
                   </div>
                 </div>
-                <div class="row">
                   <div class="form-group">
                     <label>Role</label>
                     <input type="text" class="form-control" value="{{auth()->user()->role}}" disabled>
                   </div>
-                </div>
                 <button class="btn btn-primary col-12">Save Changes</button>
             </div>
           </form>

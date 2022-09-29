@@ -6,6 +6,12 @@ use App\Http\Controllers\tamuController;
 use App\Http\Controllers\resepsionisController;
 use App\Http\Controllers\adminController;
 
+// General
+Route::get('/', function (){
+    return view('pages.dashboard');
+});
+Route::get('/kamar', [tamuController::class, 'index']);
+
 // Login
 Route::get('/login', [accountController::class,'halamanLogin'])->name('login');
 Route::post('/log', [accountController::class,'login']);
@@ -22,14 +28,13 @@ Route::post('/simpanData', [accountController::class, 'simpanData']);
 
 Route::middleware(['auth', 'roleaccess'])->group(function(){
     // General
-    Route::get('/', function (){
-        return view('pages.dashboard');
-    });
     Route::get('/profile', function (){
         return view('pages.profile');
     });
-    Route::get('/kamar', [tamuController::class, 'index']);
     Route::put('/ubahData', [accountController::class, 'ubahData']);
+    Route::get('/setting', function (){
+        return view('pages.setting');
+    });
 
     // Tamu
     Route::get('/formPesan/{id}', [tamuController::class, 'formPesan']);

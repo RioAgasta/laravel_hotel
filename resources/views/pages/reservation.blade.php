@@ -20,7 +20,6 @@
                 <th scope="col">Nama</th>
                 <th scope="col">Nama Kamar</th>
                 <th scope="col">Email</th>
-                <th scope="col">Type</th>
                 <th scope="col">Check-In</th>
                 <th scope="col">Check-Out</th>
                 <th scope="col">Jumlah</th>
@@ -35,7 +34,6 @@
                 <td>{{$p->nama}}</td>
                 <td>{{$p->namakamar}}</td>
                 <td>{{$p->email}}</td>
-                <td>{{$p->type}}</td>
                 <td>{{$p->cekin}}</td>
                 <td>{{$p->cekout}}</td>
                 <td>{{$p->jumlah}}</td>
